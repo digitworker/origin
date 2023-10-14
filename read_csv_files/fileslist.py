@@ -27,8 +27,7 @@ def get_csv_head(csv_file_path: str):
                 return row
 
 if __name__ == "__main__":
-    print("csv_files", get_files_list('./', 'csv'))
-    print("csv_head", get_csv_head('./test.csv'))
-    
-
-                
+    fl_csv = get_files_list('./', 'csv')
+    print("csv_files", fl_csv)
+    for f in fl_csv:
+        print("csv_head", get_csv_head('./'+f))

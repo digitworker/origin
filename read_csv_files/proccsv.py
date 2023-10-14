@@ -16,7 +16,7 @@ class ProcCSV():
         f = FilterStr()
         f.set_reg_expr(reg_expr)
         self.filters.append([f, fltr_col])
-    
+    '''
     def remove_filters(self):
         self.filters = []
         
@@ -25,7 +25,7 @@ class ProcCSV():
         
     def get_filters(self):
         return self.filters
-        
+    '''    
     def process_csv(self, csv_file_path, filtered: bool = False, start: int = None, end: int = None):
         reader = None
         if start:
@@ -34,8 +34,8 @@ class ProcCSV():
         if end:
             if end < 0: end = None
             if end > 0: end = int(end)
-        if filtered:
-            print("filter is on")
+        #if filtered:
+        #    print("filter is on")
         
         with open(csv_file_path) as csv_file:
             reader = csv.reader(csv_file, delimiter=',')
@@ -53,7 +53,7 @@ class ProcCSV():
                     continue
                 if line_count == 0:
                     table_csv.append(row)
-                    print(f'Column names are {", ".join(row)}')
+                    #print(f'Column names are {", ".join(row)}')
                     self.table_headers = row
                     #print("self.table_headers",self.table_headers)
                     cols_number = len(row)
@@ -79,7 +79,7 @@ class ProcCSV():
 
             #print("ended on line count ", line_count)  
             if len(table_csv)>0:
-                print("updating_result_table...")
+                print("Updating_result_table...")
                 self.result_table = table_csv
                 print("OK.")
                 return True

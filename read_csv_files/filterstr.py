@@ -13,7 +13,7 @@ class FilterStr():
     def result(self):
         self.pattern = re.compile(self.pattern_text)
         m = self.pattern.match(self.text)
-        #print(m.group(0))
+        
         if m:
             return True
         return False
@@ -22,7 +22,7 @@ class FilterDate(FilterStr):
     date_min = None
     date_max = None
     
-    #Так как в Kaggle данных часто в полях содержатся даты, я решил сделать возможность фильтрации по дате 
+    #Так как в Kaggle данных часто в полях содержатся даты, я решил сделать возможность фильтрации по дате (устаревший метод. Сейчас для простоты использую регулярные выражения, примененные к столбикам .csv файла) 
     def set_dates(self, date_min: datetime.date, date_max: datetime.date):
         self.date_min = date_min
         self.date_max = date_max
